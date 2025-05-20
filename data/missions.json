@@ -1,0 +1,129 @@
+{
+  "independent": {
+    "name": "Indépendants",
+    "branches": [
+      {
+        "name": "Colonisation libre",
+        "level_required": 1,
+        "unlocks": ["Exploration hyper-spatiale"],
+        "win_condition": [{"conquer": 5}],
+        "reward": [{
+          "leader": 1,
+          "xp": 10,
+          "credit": 1
+        }]
+      },
+      {
+        "name": "Expansion galactique",
+        "level_required": 2,
+        "unlocks": ["Colonisation planètaire"]
+      },
+      {
+        "name": "Volonté d'indépendance",
+        "level_required": 3,
+        "unlocks": ["Incitation à la révolte"]
+      },
+      {
+        "name": "Navigation pirate",
+        "level_required": 5,
+        "unlocks": ["Interception orbitale"]
+      },
+      {
+        "name": "Accords marchands",
+        "level_required": 5,
+        "unlocks": ["Réseaux commerciaux"]
+      },
+      {
+        "name": "République sénatoriale",
+        "level_required": 5,
+        "unlocks": ["Confréries, guildes et conglomérats"]
+      },
+      {
+        "name": "Mondes habités",
+        "level_required": 10,
+        "unlocks": ["Transport de troupe", "Navigation optimisé"]
+      }
+    ]
+  },
+  "empire": {
+    "name": "Empire",
+    "branches": [
+      {
+        "name": "Unification Impériale",
+        "level_required": 2,
+        "unlocks": ["Gestion de ressources"]
+      },
+      {
+        "name": "Construction de vaisseau spatiaux",
+        "level_required": 5,
+        "unlocks": ["Navires de combat légers"]
+      },
+      {
+        "name": "Usines de robots",
+        "level_required": 10,
+        "unlocks": ["Production automatisée"]
+      },
+      {
+        "name": "Expansion planétaire",
+        "level_required": 10,
+        "unlocks": ["Terraformation"]
+      },
+      {
+        "name": "Propagande impériale",
+        "level_required": 15,
+        "unlocks": ["Centres d'entrainement"]
+      },
+      {
+        "name": "Domination intergalactique",
+        "level_required": 20,
+        "unlocks": ["Croiseur de combat lourd"]
+      }
+    ]
+  },
+  "academician": {
+    "name": "Académiciens",
+    "branches": [
+      {
+        "name": "Académie des sciences",
+        "level_required": 3,
+        "unlocks": ["Construction d'Académies des sciences"]
+      },
+      {
+        "name": "Conscience humaniste",
+        "level_required": 4,
+        "unlocks": ["Diplomatie"]
+      },
+      {
+        "name": "Communauté spatiale",
+        "level_required": 5,
+        "unlocks": ["Construction de centre d'entrainement"]
+      },
+      {
+        "name": "Âge sombre impérial",
+        "level_required": 10,
+        "unlocks": ["Construction de chantiers orbitaux"]
+      },
+      {
+        "name": "Psycho-histoire",
+        "level_required": 12,
+        "unlocks": ["Prédictions sociétales"]
+      },
+      {
+        "name": "Seconde Fondation",
+        "level_required": 25,
+        "unlocks": ["Accès à la table"]
+      }
+    ]
+  },
+  "mentalist": {
+
+    "name": "Mentalistes",
+    "branches": [
+      {
+        "name": "Faculté d'histoire et de psychologie planétaire",
+        "level_required": 30,
+        "unlocks": ["Éveil aux pouvoirs mentaux"]
+      }
+    ]
+  }
+}
