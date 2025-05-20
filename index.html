@@ -145,7 +145,7 @@
     </header>
 
     <!-- Aperçu des factions -->
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 relative">
         <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
             <h4 class="text-xl font-bold text-blue-400">Explorateur</h4>
             <p class="text-sm text-gray-300 mt-2">Cartographiez l’inconnu, découvrez des mondes légendaires.</p>
@@ -160,25 +160,31 @@
         </div>
     </section>
 
+    <section class="w-full relative">
+        <a href="/mission" title="Détail de l'arbre des missions" class="absolute right-0 text-right hover:underline">En savoir plus sur les missions...</a>
+    </section>
+
     <!-- Call to Action -->
-    <a href="/register" title="C'est parti directement dans le jeu mission 1 !" class="pt-5">
-        <section>
-            <h2 class="mt-4 text-lg md:text-2xl text-gray-300 max-w-2xl mx-auto">
-                Saurez-vous guider les fondations du temps ?
-            </h2>
-            <div class="mt-10 pt-5">
-            <span class="bg-yellow-500 text-black text-xl font-bold py-3 px-6 rounded-full shadow-md hover:bg-yellow-400 transition hover:py-4 px-7 transition">
-                Commencer l’Aventure
-            </span>
-                <p class=" pt-5 mt-2 text-sm">Un <span class="text-yellow-400 transition-all duration-500 animate-pulse">leader original</span>
-                    à personnaliser dès
-                    <span class="text-cyan-400 hover:underline">
-                    l'inscription !
+    <section>
+        <a href="/register" title="C'est parti directement dans le jeu mission 1 !" class="pt-5">
+            <div>
+                <h2 class="mt-4 text-lg md:text-2xl text-gray-300 max-w-2xl mx-auto">
+                    Saurez-vous guider les fondations du temps ?
+                </h2>
+                <div class="mt-10 pt-5">
+                <span class="bg-yellow-500 text-black text-xl font-bold py-3 px-6 rounded-full shadow-md hover:bg-yellow-400 transition hover:py-4 px-7 transition">
+                    Commencer l’Aventure
                 </span>
-                </p>
+                    <p class=" pt-5 mt-2 text-sm">Un <span class="text-yellow-400 transition-all duration-500 animate-pulse">leader original</span>
+                        à personnaliser dès
+                        <span class="text-cyan-400 hover:underline">
+                        l'inscription !
+                    </span>
+                    </p>
+                </div>
             </div>
-        </section>
-    </a>
+        </a>
+    </section>
 
     <!-- Aperçu du jeu -->
     <section class="mt-12 max-w-3xl text-gray-300 text-sm leading-relaxed">
