@@ -13,8 +13,9 @@
 
 <div class="max-w-4xl mx-auto">
     <div class="container mx-auto p-4">
+
         <!-- Titre et slogan -->
-        <header class="pt-12">
+        <header class="pt-6">
             <h1 class="text-4xl md:text-6xl font-bold text-cyan-300 drop-shadow-lg">Fondation Of Time</h1>
             <h2 class="text-3xl font-bold mb-6">Arbre de compétences des factions</h2>
         </header>
@@ -29,25 +30,43 @@
 
         <!-- Aperçu des factions -->
         <section class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
-            <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
-                <h4 class="text-xl font-bold text-blue-400">Explorateur</h4>
-                <p class="text-sm text-gray-300 mt-2">Cartographiez l’inconnu, découvrez des mondes légendaires.</p>
+            <div>
+                <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
+                    <h4 class="text-xl font-bold text-blue-400">Explorateur</h4>
+                    <p class="text-sm text-gray-300 mt-2">Cartographiez l’inconnu, découvrez des mondes légendaires.</p>
+                </div>
+
+                <div class="bg-gray-100 rounded-xl p-4 shadow" id="independent-faction-container">
+                </div>
             </div>
-            <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
-                <h4 class="text-xl font-bold text-red-400">Empire</h4>
-                <p class="text-sm text-gray-300 mt-2">Dominez par la force, imposez la loi galactique.</p>
+            <div>
+                <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
+                    <h4 class="text-xl font-bold text-red-400">Empire</h4>
+                    <p class="text-sm text-gray-300 mt-2">Dominez par la force, imposez la loi galactique.</p>
+                </div>
+
+                <div class="bg-gray-100 rounded-xl p-4 shadow" id="empire-faction-container">
+                </div>
             </div>
-            <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
-                <h4 class="text-xl font-bold text-green-400">Académicien</h4>
-                <p class="text-sm text-gray-300 mt-2">Unissez les systèmes, façonnez l’harmonie interstellaire.</p>
+            <div>
+                <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
+                    <h4 class="text-xl font-bold text-green-400">Académicien</h4>
+                    <p class="text-sm text-gray-300 mt-2">Unissez les systèmes, façonnez l’harmonie interstellaire.</p>
+                </div>
+
+                <div class="bg-gray-100 rounded-xl p-4 shadow" id="academician-faction-container">
+                </div>
             </div>
-            <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
-                <h4 class="text-xl font-bold text-grey-400">Mentaliste</h4>
-                <p class="text-sm text-gray-300 mt-2">Oeuvrez dans l'ombre, manipulez la destinée de la galaxy.</p>
+            <div>
+                <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
+                    <h4 class="text-xl font-bold text-grey-400">Mentaliste</h4>
+                    <p class="text-sm text-gray-300 mt-2">Oeuvrez dans l'ombre, manipulez la destinée de la galaxy.</p>
+                </div>
+
+                <div class="bg-gray-100 rounded-xl p-4 shadow" id="mentalist-faction-container">
+                </div>
             </div>
         </section>
-
-        <div id="faction-container" class="grid grid-cols-1 md:grid-cols-4 gap-6"></div>
     </div>
 </div>
 
@@ -58,17 +77,9 @@
         const response = await fetch('/data/missions.json');
         const data = await response.json();
 
-        const container = document.getElementById('faction-container');
-        container.innerHTML = '';
-
         Object.entries(data).forEach(([key, faction]) => {
-            const factionDiv = document.createElement('div');
-            factionDiv.className = 'bg-gray-100 rounded-xl p-4 shadow';
-
-            const title = document.createElement('h2');
-            title.className = 'text-xl text-cyan-700 font-semibold mb-2';
-            // title.textContent = faction.name;
-            factionDiv.appendChild(title);
+            console.log(faction.name);
+            const factionDiv = document.getElementById(key + '-faction-container');
 
             const list = document.createElement('ul');
             list.className = 'space-y-2';
@@ -90,7 +101,6 @@
             });
 
             factionDiv.appendChild(list);
-            container.appendChild(factionDiv);
         });
     }
 
