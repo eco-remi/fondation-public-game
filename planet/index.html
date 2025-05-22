@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Mondes Légendaires Connus - Fondation Of Time - le jeu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .planet-illustration {
+            height:256px;
+            width:256px;
+            background-position: top left;
+        }
+        .planet-illustration.variation-2 {
+            background-position: top right;
+        }
+        .planet-illustration.variation-3 {
+            background-position: bottom left;
+        }
+        .planet-illustration.variation-4 {
+            background-position: bottom right;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen p-6">
+
+<div class="bg-gray-950 min-h-screen py-10 px-6 text-white">
+    <!-- Titre et slogan -->
+    <header class="p-6">
+        <h1 class="text-4xl md:text-6xl font-bold text-cyan-300 drop-shadow-lg">Fondation Of Time</h1>
+        <h2 class="text-3xl font-bold mb-6">Mondes Légendaires et Connus à ce jour</h2>
+    </header>
+
+    <!-- Menu -->
+    <menu class="mt-15 text-xs text-cyan-600 flex-col items-center text-center">
+        <a href="/" class="hover:underline">Accueil</a> ·
+        <a href="/contact" class="hover:underline">Contact</a> ·
+        <a href="/cgu" class="hover:underline">Conditions</a> ·
+        <a href="/help" class="hover:underline">Aide</a> ·
+        <a href="/login" class="hover:underline">Connexion</a>
+    </menu>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
+        <a href="/planet/terra-0"
+           class="transform hover:scale-105 transition duration-200">
+            <div class="w-72 rounded-xl shadow-xl overflow-hidden p-4 relative
+    border-4
+      border-state-100 bg-gradient-to-br from-border-indigo-400 via-border-purple-400 to-border-pink-400
+      bg-sky-500
+">
+                <!-- Image -->
+                <div style="height:256px;width:256px;background-image: url(/img/planet/type-1.png);" alt="Terre Originelle"
+                     class="w-full h-40 w-lg overflow-hidden object-cover rounded-md mb-2 bg-top-left planet-illustration variation-1">
+                </div>
+
+                <!-- Nom et titre -->
+                <div class="text-center">
+                    <h2 class="text-lg font-bold">Terre Originelle</h2>
+                    <p class="text-xs italic">Berceau de l&#039;espèce humaine</p>
+                </div>
+
+                <!-- Caractéristiques -->
+                <div class="mt-4 space-y-1">
+                    <p class="text-sm font-semibold">Matières premières</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-green-400 rounded" style="width: 16.666666666667%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Énergie</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-red-400 rounded" style="width: 91.666666666667%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Slot</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-blue-400 rounded" style="width: 91.666666666667%"></div>
+                    </div>
+                </div>
+
+                <!-- attribut -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-bold mb-1">Attributs</h3>
+                    <ul class="text-xs list-disc pl-5 space-y-1">
+                        <li><strong>Gravité: </strong> Normale</li>
+                        <li><strong>Climat: </strong> Respirable</li>
+                        <li><strong>Technologie: </strong> Archaïque</li>
+                        <li><strong>Étoile: </strong> Sol</li>
+                        <li><strong>Type: </strong> habitable</li>
+                        <li><strong>Durée d'un cycle: </strong> 24</li>
+                        <li><strong>Influence: </strong> +20% production</li>
+                    </ul>
+                </div>
+
+                <!-- footer -->
+                <p class="text-xs italic mt-3 text-opacity-70">"La Terre n&#039;appartient pas à l&#039;homme, c&#039;est l&#039;homme qui appartient à la Terre."</p>
+
+                <!-- Badge de rareté -->
+                <div class="absolute top-2 right-2 bg-white text-blue-600 text-xs font-bold px-2 py-1 rounded-full">Legendary</div>
+            </div>
+        </a>
+        <a href="/planet/mars-1"
+           class="transform hover:scale-105 transition duration-200">
+            <div class="w-72 rounded-xl shadow-xl overflow-hidden p-4 relative
+    border-4
+      border-yellow-400 border-gradient-to-br from-yellow-100 via-yellow-200 to-yellow-100
+      bg-red-700
+">
+                <!-- Image -->
+                <div style="height:256px;width:256px;background-image: url(/img/planet/type-1.png);" alt="Base Stratégique avancé"
+                     class="w-full h-40 w-lg overflow-hidden object-cover rounded-md mb-2 bg-top-left planet-illustration variation-2">
+                </div>
+
+                <!-- Nom et titre -->
+                <div class="text-center">
+                    <h2 class="text-lg font-bold">Base Stratégique avancé</h2>
+                    <p class="text-xs italic">&#039;The Red Factory&#039;</p>
+                </div>
+
+                <!-- Caractéristiques -->
+                <div class="mt-4 space-y-1">
+                    <p class="text-sm font-semibold">Matières premières</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-green-400 rounded" style="width: 50%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Énergie</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-red-400 rounded" style="width: 33.333333333333%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Slot</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-blue-400 rounded" style="width: 58.333333333333%"></div>
+                    </div>
+                </div>
+
+                <!-- attribut -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-bold mb-1">Attributs</h3>
+                    <ul class="text-xs list-disc pl-5 space-y-1">
+                        <li><strong>Gravité: </strong> Faible</li>
+                        <li><strong>Climat: </strong> Désertique</li>
+                        <li><strong>Technologie: </strong> Usine de robot</li>
+                        <li><strong>Étoile: </strong> Sol</li>
+                        <li><strong>Type: </strong> infrastructure</li>
+                        <li><strong>Durée d'un cycle: </strong> 24.7</li>
+                        <li><strong>Influence: </strong> +20% Infiltration et discrétion</li>
+                    </ul>
+                </div>
+
+                <!-- footer -->
+                <p class="text-xs italic mt-3 text-opacity-70">"Voir Mars et mourir."</p>
+
+                <!-- Badge de rareté -->
+                <div class="absolute top-2 right-2 bg-yellow-300 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full">Gold</div>
+            </div>
+        </a>
+        <a href="/planet/solaris-prime"
+           class="transform hover:scale-105 transition duration-200">
+            <div class="w-72 rounded-xl shadow-xl overflow-hidden p-4 relative
+    border-4
+      border-cyan-400
+      bg-slate-500
+">
+                <!-- Image -->
+                <div style="height:256px;width:256px;background-image: url(/img/planet/type-2.png);" alt="Station Spacial"
+                     class="w-full h-40 w-lg overflow-hidden object-cover rounded-md mb-2 bg-top-left planet-illustration variation-1">
+                </div>
+
+                <!-- Nom et titre -->
+                <div class="text-center">
+                    <h2 class="text-lg font-bold">Station Spacial</h2>
+                    <p class="text-xs italic">Thin can</p>
+                </div>
+
+                <!-- Caractéristiques -->
+                <div class="mt-4 space-y-1">
+                    <p class="text-sm font-semibold">Matières premières</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-green-400 rounded" style="width: 8.3333333333333%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Énergie</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-red-400 rounded" style="width: 75%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Slot</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-blue-400 rounded" style="width: 25%"></div>
+                    </div>
+                </div>
+
+                <!-- attribut -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-bold mb-1">Attributs</h3>
+                    <ul class="text-xs list-disc pl-5 space-y-1">
+                        <li><strong>Gravité: </strong> nulle</li>
+                        <li><strong>Climat: </strong> Idéalement optimisé par ordinateur</li>
+                        <li><strong>Technologie: </strong> Architecture orbitale</li>
+                        <li><strong>Étoile: </strong> Sol</li>
+                        <li><strong>Type: </strong> Station orbitale</li>
+                        <li><strong>Durée d'un cycle: </strong> 10</li>
+                        <li><strong>Influence: </strong> -20% Temps de trajet</li>
+                    </ul>
+                </div>
+
+                <!-- footer -->
+                <p class="text-xs italic mt-3 text-opacity-70">"Le premier vaisseau habité à avoir quitté son secteur."</p>
+
+                <!-- Badge de rareté -->
+                <div class="absolute top-2 right-2 bg-cyan-400 text-orange-800 text-xs font-bold px-2 py-1 rounded-full">Special</div>
+            </div>
+        </a>
+        <a href="/planet/solenne-prime"
+           class="transform hover:scale-105 transition duration-200">
+            <div class="w-72 rounded-xl shadow-xl overflow-hidden p-4 relative
+    border-4
+      border-pink-400
+      bg-indigo-950
+">
+                <!-- Image -->
+                <div style="height:256px;width:256px;background-image: url(/img/planet/type-3.png);" alt="Solenne Prime"
+                     class="w-full h-40 w-lg overflow-hidden object-cover rounded-md mb-2 bg-top-left planet-illustration variation-3">
+                </div>
+
+                <!-- Nom et titre -->
+                <div class="text-center">
+                    <h2 class="text-lg font-bold">Solenne Prime</h2>
+                    <p class="text-xs italic">Centre Administratif Galactique</p>
+                </div>
+
+                <!-- Caractéristiques -->
+                <div class="mt-4 space-y-1">
+                    <p class="text-sm font-semibold">Matières premières</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-green-400 rounded" style="width: 8.3333333333333%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Énergie</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-red-400 rounded" style="width: 100%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Slot</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-blue-400 rounded" style="width: 41.666666666667%"></div>
+                    </div>
+                </div>
+
+                <!-- attribut -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-bold mb-1">Attributs</h3>
+                    <ul class="text-xs list-disc pl-5 space-y-1">
+                        <li><strong>Gravité: </strong> Forte</li>
+                        <li><strong>Climat: </strong> Habitable</li>
+                        <li><strong>Technologie: </strong> Ville-monde</li>
+                        <li><strong>Étoile: </strong> Solarius</li>
+                        <li><strong>Type: </strong> Giant Green</li>
+                        <li><strong>Durée d'un cycle: </strong> 32</li>
+                        <li><strong>Influence: </strong> -20% Food Consommation</li>
+                    </ul>
+                </div>
+
+                <!-- footer -->
+                <p class="text-xs italic mt-3 text-opacity-70">"... et la terre fût recouverte de métal."</p>
+
+                <!-- Badge de rareté -->
+                <div class="absolute top-2 right-2 bg-pink-300 text-gray-900 text-xs font-bold px-2 py-1 rounded-full">Platine</div>
+            </div>
+        </a>
+        <a href="/planet/ligura"
+           class="transform hover:scale-105 transition duration-200">
+            <div class="w-72 rounded-xl shadow-xl overflow-hidden p-4 relative
+    border-4
+      border-gray-600
+      bg-blue-400
+">
+                <!-- Image -->
+                <div style="height:256px;width:256px;background-image: url(/img/planet/type-2.png);" alt="Ligura"
+                     class="w-full h-40 w-lg overflow-hidden object-cover rounded-md mb-2 bg-top-left planet-illustration variation-4">
+                </div>
+
+                <!-- Nom et titre -->
+                <div class="text-center">
+                    <h2 class="text-lg font-bold">Ligura</h2>
+                    <p class="text-xs italic">La cité des milles monde</p>
+                </div>
+
+                <!-- Caractéristiques -->
+                <div class="mt-4 space-y-1">
+                    <p class="text-sm font-semibold">Matières premières</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-green-400 rounded" style="width: 25%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Énergie</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-red-400 rounded" style="width: 91.666666666667%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Slot</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-blue-400 rounded" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <!-- attribut -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-bold mb-1">Attributs</h3>
+                    <ul class="text-xs list-disc pl-5 space-y-1">
+                        <li><strong>Gravité: </strong> Normale</li>
+                        <li><strong>Climat: </strong> Géante gazeuse</li>
+                        <li><strong>Technologie: </strong> Techno-monde-orbital</li>
+                        <li><strong>Étoile: </strong> Expectum</li>
+                        <li><strong>Type: </strong> Giant Blue</li>
+                        <li><strong>Durée d'un cycle: </strong> 32</li>
+                        <li><strong>Influence: </strong> +10% Food production</li>
+                    </ul>
+                </div>
+
+                <!-- footer -->
+                <p class="text-xs italic mt-3 text-opacity-70">"La véritable liberté ne s&#039;éprouve qu&#039;à Ligura."</p>
+
+                <!-- Badge de rareté -->
+                <div class="absolute top-2 right-2 bg-gray-300 text-stone-800 text-xs font-bold px-2 py-1 rounded-full">Commun</div>
+            </div>
+        </a>
+        <a href="/planet/valkor"
+           class="transform hover:scale-105 transition duration-200">
+            <div class="w-72 rounded-xl shadow-xl overflow-hidden p-4 relative
+    border-4
+      border-state-100 bg-gradient-to-br from-border-indigo-400 via-border-purple-400 to-border-pink-400
+      bg-red-800
+">
+                <!-- Image -->
+                <div style="height:256px;width:256px;background-image: url(/img/planet/type-1.png);" alt="Valkor"
+                     class="w-full h-40 w-lg overflow-hidden object-cover rounded-md mb-2 bg-top-left planet-illustration variation-3">
+                </div>
+
+                <!-- Nom et titre -->
+                <div class="text-center">
+                    <h2 class="text-lg font-bold">Valkor</h2>
+                    <p class="text-xs italic">La forge des titans</p>
+                </div>
+
+                <!-- Caractéristiques -->
+                <div class="mt-4 space-y-1">
+                    <p class="text-sm font-semibold">Matières premières</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-green-400 rounded" style="width: 75%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Énergie</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-red-400 rounded" style="width: 83.333333333333%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Slot</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-blue-400 rounded" style="width: 25%"></div>
+                    </div>
+                </div>
+
+                <!-- attribut -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-bold mb-1">Attributs</h3>
+                    <ul class="text-xs list-disc pl-5 space-y-1">
+                        <li><strong>Gravité: </strong> Extrême</li>
+                        <li><strong>Climat: </strong> Éruptions constantes</li>
+                        <li><strong>Technologie: </strong> Méca-fusion</li>
+                        <li><strong>Étoile: </strong> Varnak</li>
+                        <li><strong>Type: </strong> Géante rocheuse</li>
+                        <li><strong>Durée d'un cycle: </strong> 29</li>
+                        <li><strong>Influence: </strong> +25% Production de vaisseaux lourds</li>
+                    </ul>
+                </div>
+
+                <!-- footer -->
+                <p class="text-xs italic mt-3 text-opacity-70">"Chaque enclume bat le rythme de la guerre."</p>
+
+                <!-- Badge de rareté -->
+                <div class="absolute top-2 right-2 bg-white text-blue-600 text-xs font-bold px-2 py-1 rounded-full">Legendary</div>
+            </div>
+        </a>
+        <a href="/planet/myrrh"
+           class="transform hover:scale-105 transition duration-200">
+            <div class="w-72 rounded-xl shadow-xl overflow-hidden p-4 relative
+    border-4
+      border-yellow-400 border-gradient-to-br from-yellow-100 via-yellow-200 to-yellow-100
+      bg-fuchsia-400
+">
+                <!-- Image -->
+                <div style="height:256px;width:256px;background-image: url(/img/planet/type-4.png);" alt="Myrrh"
+                     class="w-full h-40 w-lg overflow-hidden object-cover rounded-md mb-2 bg-top-left planet-illustration variation-1">
+                </div>
+
+                <!-- Nom et titre -->
+                <div class="text-center">
+                    <h2 class="text-lg font-bold">Myrrh</h2>
+                    <p class="text-xs italic">Monde minier aux réssources (presque) infinies.</p>
+                </div>
+
+                <!-- Caractéristiques -->
+                <div class="mt-4 space-y-1">
+                    <p class="text-sm font-semibold">Matières premières</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-green-400 rounded" style="width: 100%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Énergie</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-red-400 rounded" style="width: 16.666666666667%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Slot</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-blue-400 rounded" style="width: 16.666666666667%"></div>
+                    </div>
+                </div>
+
+                <!-- attribut -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-bold mb-1">Attributs</h3>
+                    <ul class="text-xs list-disc pl-5 space-y-1">
+                        <li><strong>Gravité: </strong> Faible</li>
+                        <li><strong>Climat: </strong> Habitable</li>
+                        <li><strong>Technologie: </strong> Exploitation Minière</li>
+                        <li><strong>Étoile: </strong> Red-Dwarf</li>
+                        <li><strong>Type: </strong> Petite Rocheuse</li>
+                        <li><strong>Durée d'un cycle: </strong> 16</li>
+                        <li><strong>Influence: </strong> +20% Production</li>
+                    </ul>
+                </div>
+
+                <!-- footer -->
+                <p class="text-xs italic mt-3 text-opacity-70">"L&#039;or est jaune, l&#039;argent gris mais le myrrh lui irradie."</p>
+
+                <!-- Badge de rareté -->
+                <div class="absolute top-2 right-2 bg-yellow-300 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full">Gold</div>
+            </div>
+        </a>
+        <a href="/planet/neryon"
+           class="transform hover:scale-105 transition duration-200">
+            <div class="w-72 rounded-xl shadow-xl overflow-hidden p-4 relative
+    border-4
+      border-state-100 bg-gradient-to-br from-border-indigo-400 via-border-purple-400 to-border-pink-400
+      bg-green-400
+">
+                <!-- Image -->
+                <div style="height:256px;width:256px;background-image: url(/img/planet/type-4.png);" alt="Neryon"
+                     class="w-full h-40 w-lg overflow-hidden object-cover rounded-md mb-2 bg-top-left planet-illustration variation-3">
+                </div>
+
+                <!-- Nom et titre -->
+                <div class="text-center">
+                    <h2 class="text-lg font-bold">Neryon</h2>
+                    <p class="text-xs italic">Berceau de l&#039;Ordre de Neryon, centre de la résistance intellectuelle.</p>
+                </div>
+
+                <!-- Caractéristiques -->
+                <div class="mt-4 space-y-1">
+                    <p class="text-sm font-semibold">Matières premières</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-green-400 rounded" style="width: 33.333333333333%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Énergie</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-red-400 rounded" style="width: 66.666666666667%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Slot</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-blue-400 rounded" style="width: 58.333333333333%"></div>
+                    </div>
+                </div>
+
+                <!-- attribut -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-bold mb-1">Attributs</h3>
+                    <ul class="text-xs list-disc pl-5 space-y-1">
+                        <li><strong>Gravité: </strong> Normale</li>
+                        <li><strong>Climat: </strong> Habitable</li>
+                        <li><strong>Technologie: </strong> Architecture orbitale</li>
+                        <li><strong>Étoile: </strong> Actaris-second</li>
+                        <li><strong>Type: </strong> Giant Blue</li>
+                        <li><strong>Durée d'un cycle: </strong> 32</li>
+                        <li><strong>Influence: </strong> +10% influence politique</li>
+                    </ul>
+                </div>
+
+                <!-- footer -->
+                <p class="text-xs italic mt-3 text-opacity-70">"Chaque pensée élève la cité vers les étoiles."</p>
+
+                <!-- Badge de rareté -->
+                <div class="absolute top-2 right-2 bg-white text-blue-600 text-xs font-bold px-2 py-1 rounded-full">Legendary</div>
+            </div>
+        </a>
+        <a href="/planet/noesis"
+           class="transform hover:scale-105 transition duration-200">
+            <div class="w-72 rounded-xl shadow-xl overflow-hidden p-4 relative
+    border-4
+      border-state-100 bg-gradient-to-br from-border-indigo-400 via-border-purple-400 to-border-pink-400
+      bg-cyan-900
+">
+                <!-- Image -->
+                <div style="height:256px;width:256px;background-image: url(/img/planet/type-4.png);" alt="Noesis"
+                     class="w-full h-40 w-lg overflow-hidden object-cover rounded-md mb-2 bg-top-left planet-illustration variation-4">
+                </div>
+
+                <!-- Nom et titre -->
+                <div class="text-center">
+                    <h2 class="text-lg font-bold">Noesis</h2>
+                    <p class="text-xs italic">Le Noyau de Verre</p>
+                </div>
+
+                <!-- Caractéristiques -->
+                <div class="mt-4 space-y-1">
+                    <p class="text-sm font-semibold">Matières premières</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-green-400 rounded" style="width: 58.333333333333%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Énergie</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-red-400 rounded" style="width: 16.666666666667%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Slot</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-blue-400 rounded" style="width: 25%"></div>
+                    </div>
+                </div>
+
+                <!-- attribut -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-bold mb-1">Attributs</h3>
+                    <ul class="text-xs list-disc pl-5 space-y-1">
+                        <li><strong>Gravité: </strong> Très Forte</li>
+                        <li><strong>Climat: </strong> Habitable</li>
+                        <li><strong>Technologie: </strong> Archaïque</li>
+                        <li><strong>Étoile: </strong> Nyss</li>
+                        <li><strong>Type: </strong> Petite rocheuse</li>
+                        <li><strong>Durée d'un cycle: </strong> 29</li>
+                        <li><strong>Influence: </strong> +10% Politic</li>
+                    </ul>
+                </div>
+
+                <!-- footer -->
+                <p class="text-xs italic mt-3 text-opacity-70">"Même les pensées se réfractent à Noesis."</p>
+
+                <!-- Badge de rareté -->
+                <div class="absolute top-2 right-2 bg-white text-blue-600 text-xs font-bold px-2 py-1 rounded-full">Legendary</div>
+            </div>
+        </a>
+        <a href="/planet/domion"
+           class="transform hover:scale-105 transition duration-200">
+            <div class="w-72 rounded-xl shadow-xl overflow-hidden p-4 relative
+    border-4
+      border-gray-600
+      bg-orange-400
+">
+                <!-- Image -->
+                <div style="height:256px;width:256px;background-image: url(/img/planet/type-3.png);" alt="Domion"
+                     class="w-full h-40 w-lg overflow-hidden object-cover rounded-md mb-2 bg-top-left planet-illustration variation-2">
+                </div>
+
+                <!-- Nom et titre -->
+                <div class="text-center">
+                    <h2 class="text-lg font-bold">Domion</h2>
+                    <p class="text-xs italic">Base militaire stratégique.</p>
+                </div>
+
+                <!-- Caractéristiques -->
+                <div class="mt-4 space-y-1">
+                    <p class="text-sm font-semibold">Matières premières</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-green-400 rounded" style="width: 8.3333333333333%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Énergie</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-red-400 rounded" style="width: 100%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Slot</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-blue-400 rounded" style="width: 41.666666666667%"></div>
+                    </div>
+                </div>
+
+                <!-- attribut -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-bold mb-1">Attributs</h3>
+                    <ul class="text-xs list-disc pl-5 space-y-1">
+                        <li><strong>Gravité: </strong> Inexistante</li>
+                        <li><strong>Climat: </strong> Base Lunaire</li>
+                        <li><strong>Technologie: </strong> Centre d&#039;entrainement</li>
+                        <li><strong>Étoile: </strong> Dorness</li>
+                        <li><strong>Type: </strong> Moon</li>
+                        <li><strong>Durée d'un cycle: </strong> 15</li>
+                        <li><strong>Influence: </strong> +30% Production d&#039;unité</li>
+                    </ul>
+                </div>
+
+                <!-- footer -->
+                <p class="text-xs italic mt-3 text-opacity-70">"Les meilleurs soldats viennent de Domion."</p>
+
+                <!-- Badge de rareté -->
+                <div class="absolute top-2 right-2 bg-gray-300 text-stone-800 text-xs font-bold px-2 py-1 rounded-full">Commun</div>
+            </div>
+        </a>
+        <a href="/planet/saphira"
+           class="transform hover:scale-105 transition duration-200">
+            <div class="w-72 rounded-xl shadow-xl overflow-hidden p-4 relative
+    border-4
+      border-gray-600
+      bg-sky-400
+">
+                <!-- Image -->
+                <div style="height:256px;width:256px;background-image: url(/img/planet/type-3.png);" alt="Saphira"
+                     class="w-full h-40 w-lg overflow-hidden object-cover rounded-md mb-2 bg-top-left planet-illustration variation-4">
+                </div>
+
+                <!-- Nom et titre -->
+                <div class="text-center">
+                    <h2 class="text-lg font-bold">Saphira</h2>
+                    <p class="text-xs italic">Monde océanique, centre de recherche avancée.</p>
+                </div>
+
+                <!-- Caractéristiques -->
+                <div class="mt-4 space-y-1">
+                    <p class="text-sm font-semibold">Matières premières</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-green-400 rounded" style="width: 8.3333333333333%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Énergie</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-red-400 rounded" style="width: 100%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Slot</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-blue-400 rounded" style="width: 41.666666666667%"></div>
+                    </div>
+                </div>
+
+                <!-- attribut -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-bold mb-1">Attributs</h3>
+                    <ul class="text-xs list-disc pl-5 space-y-1">
+                        <li><strong>Gravité: </strong> Inexistante</li>
+                        <li><strong>Climat: </strong> Base Lunaire</li>
+                        <li><strong>Technologie: </strong> Centre d&#039;entrainement</li>
+                        <li><strong>Étoile: </strong> Dorness</li>
+                        <li><strong>Type: </strong> Moon</li>
+                        <li><strong>Durée d'un cycle: </strong> 15</li>
+                        <li><strong>Influence: </strong> +30% Production d&#039;unité</li>
+                    </ul>
+                </div>
+
+                <!-- footer -->
+                <p class="text-xs italic mt-3 text-opacity-70">"Bienvenue dans les plus beaux palaces flottants de la galaxie !"</p>
+
+                <!-- Badge de rareté -->
+                <div class="absolute top-2 right-2 bg-gray-300 text-stone-800 text-xs font-bold px-2 py-1 rounded-full">Commun</div>
+            </div>
+        </a>
+        <a href="/planet/eldara"
+           class="transform hover:scale-105 transition duration-200">
+            <div class="w-72 rounded-xl shadow-xl overflow-hidden p-4 relative
+    border-4
+      border-gray-600
+      bg-pink-400
+">
+                <!-- Image -->
+                <div style="height:256px;width:256px;background-image: url(/img/planet/type-3.png);" alt="Eldara"
+                     class="w-full h-40 w-lg overflow-hidden object-cover rounded-md mb-2 bg-top-left planet-illustration variation-1">
+                </div>
+
+                <!-- Nom et titre -->
+                <div class="text-center">
+                    <h2 class="text-lg font-bold">Eldara</h2>
+                    <p class="text-xs italic">Ruines d&#039;une civilisation avancée.</p>
+                </div>
+
+                <!-- Caractéristiques -->
+                <div class="mt-4 space-y-1">
+                    <p class="text-sm font-semibold">Matières premières</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-green-400 rounded" style="width: 8.3333333333333%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Énergie</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-red-400 rounded" style="width: 100%"></div>
+                    </div>
+                    <p class="text-sm font-semibold">Slot</p>
+                    <div class="w-full bg-gray-700 rounded h-2">
+                        <div class="h-2 bg-blue-400 rounded" style="width: 41.666666666667%"></div>
+                    </div>
+                </div>
+
+                <!-- attribut -->
+                <div class="mt-4">
+                    <h3 class="text-sm font-bold mb-1">Attributs</h3>
+                    <ul class="text-xs list-disc pl-5 space-y-1">
+                        <li><strong>Gravité: </strong> Inexistante</li>
+                        <li><strong>Climat: </strong> Base Lunaire</li>
+                        <li><strong>Technologie: </strong> Centre d&#039;entrainement</li>
+                        <li><strong>Étoile: </strong> Dorness</li>
+                        <li><strong>Type: </strong> Moon</li>
+                        <li><strong>Durée d'un cycle: </strong> 15</li>
+                        <li><strong>Influence: </strong> +30% Production d&#039;unité</li>
+                    </ul>
+                </div>
+
+                <!-- footer -->
+                <p class="text-xs italic mt-3 text-opacity-70">"D&#039;anciènnes Pyramides en pierre surplombent les restes de l&#039;antique cité."</p>
+
+                <!-- Badge de rareté -->
+                <div class="absolute top-2 right-2 bg-gray-300 text-stone-800 text-xs font-bold px-2 py-1 rounded-full">Commun</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
