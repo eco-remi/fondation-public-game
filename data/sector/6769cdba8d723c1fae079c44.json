@@ -1,0 +1,67 @@
+{
+    "identifier": "6769cdba8d723c1fae079c44",
+    "name": "First Galactic space - firstPlayer",
+    "type": "mid-density",
+    "control": "1%",
+    "missions": "1",
+    "planets": [
+        {
+            "identifier": "terra-0",
+            "name": "Terre Originelle",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "identifier": "0",
+            "name": "Solenne Prime",
+            "x": 80,
+            "y": 40
+        },
+        {
+            "identifier": "1",
+            "name": "Neryon",
+            "x": 220,
+            "y": 120
+        },
+        {
+            "identifier": "2",
+            "name": "Liguria",
+            "x": 400,
+            "y": 80
+        },
+        {
+            "identifier": "3",
+            "name": "Noesis",
+            "x": 330,
+            "y": 200
+        },
+        {
+            "identifier": "4",
+            "name": "Myrrh",
+            "x": 120,
+            "y": 180
+        }
+    ],
+    "link": [
+        [
+            0,
+            1
+        ],
+        [
+            1,
+            2
+        ],
+        [
+            1,
+            3
+        ],
+        [
+            3,
+            4
+        ],
+        [
+            0,
+            4
+        ]
+    ]
+}

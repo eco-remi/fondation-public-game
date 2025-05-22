@@ -1,0 +1,60 @@
+{
+    "identifier": "6769cdba8d723c1fae079c4b",
+    "name": "firstPlayer",
+    "currentSector": "6769cdba8d723c1fae079c44",
+    "level": 3,
+    "currentMission": "?",
+    "currentFaction": "?",
+    "avatarUrl": "avatar.png",
+    "totalXp": 234,
+    "missionsDone": 3,
+    "credits": 10,
+    "leaderCount": 3,
+    "leaders": [
+        {
+            "identifier": "6769cdba8d723c1fae079c46",
+            "name": "Bob 0",
+            "strength": 0,
+            "diplomacy": 0,
+            "piloting": 7,
+            "status": "exploration",
+            "position": "6769cdba8d723c1fae079c3f",
+            "ship": {
+                "identifier": "6769cdba8d723c1fae079c45",
+                "type": "G1",
+                "jump": 10,
+                "celerity": 10
+            }
+        },
+        {
+            "identifier": "6769cdba8d723c1fae079c48",
+            "name": "Bob 1",
+            "strength": 0,
+            "diplomacy": 0,
+            "piloting": 2,
+            "status": "idle",
+            "position": "6769cdba8d723c1fae079c41",
+            "ship": {
+                "identifier": "6769cdba8d723c1fae079c47",
+                "type": "G1",
+                "jump": 10,
+                "celerity": 10
+            }
+        },
+        {
+            "identifier": "6769cdba8d723c1fae079c4a",
+            "name": "Bob 2",
+            "strength": 0,
+            "diplomacy": 0,
+            "piloting": 0,
+            "status": "Stationnement sur",
+            "position": "6769cdba8d723c1fae079c12",
+            "ship": {
+                "identifier": "6769cdba8d723c1fae079c49",
+                "type": "G1",
+                "jump": 10,
+                "celerity": 10
+            }
+        }
+    ]
+}
