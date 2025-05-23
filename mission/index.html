@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Foundation of Time - Arbre de compétences</title>
     <link rel="icon" href="/favicon.ico">
-
+    <style>
+        .reward-pop {
+            animation: pop 0.6s ease-out;
+        }
+        @keyframes pop {
+            0% { transform: scale(0.5); opacity: 0; }
+            60% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+    </style>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -32,39 +41,47 @@
         <!-- Aperçu des factions -->
         <section class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
             <div>
-                <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
-                    <h4 class="text-xl font-bold text-blue-400">Explorateur</h4>
-                    <p class="text-sm text-gray-300 mt-2">Cartographiez l’inconnu, découvrez des mondes légendaires.</p>
-                </div>
+                <a href="#independent" onclick="let div = document.getElementById('independent'); div.classList.toggle('hidden');  div.classList.toggle('reward-pop'); return false;">
+                    <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
+                        <h4 class="text-xl font-bold text-blue-400">Explorateur</h4>
+                        <p class="text-sm text-gray-300 mt-2">Cartographiez l’inconnu, découvrez des mondes légendaires.</p>
+                    </div>
+                </a>
 
-                <div class="bg-gray-100 rounded-xl p-4 shadow" id="independent-faction-container">
+                <div class="bg-gray-100 rounded-xl p-4 shadow hidden" id="independent">
                 </div>
             </div>
             <div>
-                <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
-                    <h4 class="text-xl font-bold text-red-400">Empire</h4>
-                    <p class="text-sm text-gray-300 mt-2">Dominez par la force, imposez la loi galactique.</p>
-                </div>
+                <a href="#empire" onclick="let div = document.getElementById('empire'); div.classList.toggle('hidden');  div.classList.toggle('reward-pop'); return false;">
+                    <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
+                        <h4 class="text-xl font-bold text-red-400">Empire</h4>
+                        <p class="text-sm text-gray-300 mt-2">Dominez par la force, imposez la loi galactique.</p>
+                    </div>
+                </a>
 
-                <div class="bg-gray-100 rounded-xl p-4 shadow" id="empire-faction-container">
+                <div class="bg-gray-100 rounded-xl p-4 shadow hidden" id="empire">
                 </div>
             </div>
             <div>
-                <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
-                    <h4 class="text-xl font-bold text-green-400">Académicien</h4>
-                    <p class="text-sm text-gray-300 mt-2">Unissez les systèmes, façonnez l’harmonie interstellaire.</p>
-                </div>
+                <a href="#academician" onclick="let div = document.getElementById('academician'); div.classList.toggle('hidden');  div.classList.toggle('reward-pop'); return false;">
+                    <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
+                        <h4 class="text-xl font-bold text-green-400">Académicien</h4>
+                        <p class="text-sm text-gray-300 mt-2">Unissez les systèmes, façonnez l’harmonie interstellaire.</p>
+                    </div>
+                </a>
 
-                <div class="bg-gray-100 rounded-xl p-4 shadow" id="academician-faction-container">
+                <div class="bg-gray-100 rounded-xl p-4 shadow hidden" id="academician">
                 </div>
             </div>
             <div>
-                <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
-                    <h4 class="text-xl font-bold text-grey-400">Mentaliste</h4>
-                    <p class="text-sm text-gray-300 mt-2">Oeuvrez dans l'ombre, manipulez la destinée de la galaxy.</p>
-                </div>
+                <a href="#mentalist" onclick="let div = document.getElementById('mentalist'); div.classList.toggle('hidden');  div.classList.toggle('reward-pop'); return false;">
+                    <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:scale-105 transition">
+                        <h4 class="text-xl font-bold text-grey-400">Mentaliste</h4>
+                        <p class="text-sm text-gray-300 mt-2">Oeuvrez dans l'ombre, manipulez la destinée de la galaxy.</p>
+                    </div>
+                </a>
 
-                <div class="bg-gray-100 rounded-xl p-4 shadow" id="mentalist-faction-container">
+                <div class="bg-gray-100 rounded-xl p-4 shadow hidden" id="mentalist">
                 </div>
             </div>
         </section>
@@ -79,8 +96,7 @@
         const data = await response.json();
 
         Object.entries(data).forEach(([key, faction]) => {
-            console.log(faction.name);
-            const factionDiv = document.getElementById(key + '-faction-container');
+            const factionDiv = document.getElementById(key);
 
             const list = document.createElement('ul');
             list.className = 'space-y-2';
