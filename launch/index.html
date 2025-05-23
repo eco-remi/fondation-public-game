@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Lancer une mission - Fondation of Time</title>
+    <link rel="icon" href="/favicon.ico">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen p-6">
+
+<!-- Titre et slogan -->
+<header class="p-2">
+    <h1 class="text-4xl md:text-6xl font-bold text-cyan-300 drop-shadow-lg">Nouvelle mission</h1>
+</header>
+
+<!-- Partie haute -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 m-8">
+    <div>
+        <div class="bg-gray-800 p-4 rounded-xl shadow-md">
+            <h4 class="text-xl font-bold text-blue-400">Explorateur</h4>
+            <p class="text-sm text-gray-300 mt-2">Cartographiez l’inconnu, découvrez des mondes légendaires.</p>
+        </div>
+        <div class="bg-gray-800 p-4 rounded-xl shadow-md mt-3">
+            <ul class="list-disc">
+                <li><strong>Objectif :</strong> Obtenez votre brevet de pilote</li>
+                <li><strong>Niveau requis :</strong> 0</li>
+                <li><strong>Compétence débloquée :</strong> exploration</li>
+            </ul>
+        </div>
+    </div>
+    <div class="bg-gray-800 p-4 rounded-xl shadow-md">
+        <h4 class="text-xl font-bold text-yellow-600 mt-6">Prélude</h4>
+        <p>Au départ, il n'y avait que la terre,...<br/>
+            Vous incarnez un étudiant de l'Acédémie Terrestre. Mars viens tout juste d'être colonisé,
+            et comme chaque terrien votre nouveau leader rêve de s'envoler vers de nouveaux mondes...<br/> <br/>
+            Suivez les cours de pilotage et parcourez la planète Terre pour terminer la mission.</p>
+    </div>
+</div>
+
+<!-- Partie centrale : sélection des planète & leaders de départ -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 m-8">
+
+    <div>
+        <h4 class="text-xl font-bold text-blue-400 p-3">Planète de départ</h4>
+        <div class="w-72 rounded-xl shadow-xl overflow-hidden p-4 relative
+    border-4
+      border-state-100 bg-gradient-to-br from-border-indigo-400 via-border-purple-400 to-border-pink-400
+      bg-sky-500
+">
+            <!-- Image -->
+            <div style="height:256px;width:256px;background-image: url(/img/planet/type-1.png);" alt="Terre Originelle"
+                 class="w-full h-40 w-lg overflow-hidden object-cover rounded-md mb-2 bg-top-left planet-illustration variation-1">
+            </div>
+
+            <!-- Nom et titre -->
+            <div class="text-center">
+                <h2 class="text-lg font-bold">Terre Originelle</h2>
+                <p class="text-xs italic">Berceau de l&#039;espèce humaine</p>
+            </div>
+
+            <!-- Caractéristiques -->
+            <div class="mt-4 space-y-1">
+                <p class="text-sm font-semibold">Matières premières</p>
+                <div class="w-full bg-gray-700 rounded h-2">
+                    <div class="h-2 bg-green-400 rounded" style="width: 16.666666666667%"></div>
+                </div>
+                <p class="text-sm font-semibold">Énergie</p>
+                <div class="w-full bg-gray-700 rounded h-2">
+                    <div class="h-2 bg-red-400 rounded" style="width: 91.666666666667%"></div>
+                </div>
+                <p class="text-sm font-semibold">Slot</p>
+                <div class="w-full bg-gray-700 rounded h-2">
+                    <div class="h-2 bg-blue-400 rounded" style="width: 91.666666666667%"></div>
+                </div>
+            </div>
+
+            <!-- attribut -->
+            <div class="mt-4">
+                <h3 class="text-sm font-bold mb-1">Attributs</h3>
+                <ul class="text-xs list-disc pl-5 space-y-1">
+                    <li><strong>Gravité: </strong> Normale</li>
+                    <li><strong>Climat: </strong> Respirable</li>
+                    <li><strong>Technologie: </strong> Archaïque</li>
+                    <li><strong>Étoile: </strong> Sol</li>
+                    <li><strong>Type: </strong> habitable</li>
+                    <li><strong>Durée d'un cycle: </strong> 24</li>
+                    <li><strong>Influence: </strong> +20% production</li>
+                </ul>
+            </div>
+
+            <!-- footer -->
+            <p class="text-xs italic mt-3 text-opacity-70">"La Terre n&#039;appartient pas à l&#039;homme, c&#039;est l&#039;homme qui appartient à la Terre."</p>
+
+            <!-- Badge de rareté -->
+            <div class="absolute top-2 right-2 bg-white text-blue-600 text-xs font-bold px-2 py-1 rounded-full">Legendary</div>
+        </div>
+    </div>
+
+    <div>
+        <h4 class="text-xl font-bold text-blue-400 p-3">Leader</h4>
+        <div class="w-72 rounded-xl shadow-xl overflow-hidden p-4 relative border-4
+      border-gray-600 bg-gray-800
+    transform hover:scale-105 transition duration-200
+">
+            <!-- Illustration -->
+            <div class="bg-black w-full h-40 w-lg overflow-hidden object-cover rounded mb-2 flex items-center justify-center">
+                <div style="height:128px;width:128px;background-image: url(/img/leader/ark_tolan.png);" alt="Ark Tolan illustration"
+                     class="bg-top-left leader-illustration ">
+                </div>
+            </div>
+
+            <!-- Nom et titre -->
+            <div class="text-center">
+                <h2 class="text-lg font-bold">Ark Tolan</h2>
+                <p class="text-xs text-gray-400 italic">~</p>
+                <p class="text-xs text-bold">Level 1</p>
+            </div>
+
+            <!-- Caractéristiques -->
+            <div class="mt-4 space-y-1">
+                <p class="text-sm font-semibold">Exploration</p>
+                <div class="w-full bg-gray-700 rounded h-2">
+                    <div class="h-2 bg-green-400 rounded" style="width: 54%"></div>
+                </div>
+                <p class="text-sm font-semibold">Combat</p>
+                <div class="w-full bg-gray-700 rounded h-2">
+                    <div class="h-2 bg-red-400 rounded" style="width: 68%"></div>
+                </div>
+                <p class="text-sm font-semibold">Diplomatie</p>
+                <div class="w-full bg-gray-700 rounded h-2">
+                    <div class="h-2 bg-blue-400 rounded" style="width: 27%"></div>
+                </div>
+            </div>
+
+            <!-- Compétences débloquées -->
+            <div class="mt-4">
+                <h3 class="text-sm font-bold mb-1">Compétences</h3>
+                <ul class="text-xs text-gray-200 list-disc pl-5 space-y-1">
+                </ul>
+            </div>
+
+            <!-- Badge de rareté -->
+            <div class="absolute top-2 right-2 bg-gray-300 text-stone-800 text-xs font-bold px-2 py-1 rounded-full">Commun</div>
+        </div>
+
+        <a href="#generate" class="btn-generate">
+            <div class="w-72">
+                <div class="bg-green-500 text-black p-4 m-4 rounded-full shadow-md hover:bg-yellow-400 transition hover:p-6 transition hover:m-2 transition">
+                    <div class="mt-2">♻️Relancer la pioche</div>
+                    <div class="mt-2">(Nécessite 1 💎)</div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="items-center p-3 md:pt-12">
+        <a href="#launch" class="launch-button bg-yellow-500 text-black text-xl font-bold p-4 ml-4 rounded-full shadow-md hover:bg-yellow-400 transition hover:p-6 transition hover:ml-2 transition">
+            🚀 Lancer la Mission
+        </a>
+    </div>
+</div>
+</div>
+
+
+<script>
+    document.querySelectorAll('.btn-generate').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const slot = btn.dataset.slot;
+            alert(`Génération aléatoire pour le slot ${slot} (à implémenter)`);
+        });
+    });
+
+    document.querySelectorAll('.btn-select').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const slot = btn.dataset.slot;
+            alert(`Sélection d’un leader existant pour le slot ${slot} (à implémenter)`);
+        });
+    });
+
+    document.querySelector('.launch-button')?.addEventListener('click', () => {
+        alert("Mission lancée ! (en attente de backend)");
+    });
+</script>
+</body>
+
+</html>

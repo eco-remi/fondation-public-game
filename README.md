@@ -8,7 +8,9 @@ deployed on https://fondation-public-game-uvx7v.kinsta.page/
 /cgu display term and privacy policies
 /help will be used as wiki & encyclopedia
 /mission concern about mission tree page preview
+/planet display of all knowed worlds
 /data contain public json data files (like missions...)
+/launch start new party with mission 1
 
 Todo : 
 /login
