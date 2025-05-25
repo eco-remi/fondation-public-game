@@ -1,0 +1,58 @@
+{
+  "ships": [
+    {
+      "id": "ship001",
+      "name": "Aegis Falcon",
+      "type": "Interceptor",
+      "origin": "Republic",
+      "speed": 320,
+      "hyperdrive": 2.5,
+      "firepower": 45
+    },
+    {
+      "id": "ship002",
+      "name": "Void Scarab",
+      "type": "Insectoid",
+      "origin": "Hive Fleet",
+      "speed": 280,
+      "hyperdrive": 3.2,
+      "firepower": 65
+    },
+    {
+      "id": "ship003",
+      "name": "Obsidian Hammer",
+      "type": "Cruiser",
+      "origin": "Imperial",
+      "speed": 180,
+      "hyperdrive": 1.8,
+      "firepower": 120
+    },
+    {
+      "id": "ship004",
+      "name": "Spectral Ray",
+      "type": "Anti-Grav Scout",
+      "origin": "Nomad Clans",
+      "speed": 400,
+      "hyperdrive": 4.0,
+      "firepower": 20
+    },
+    {
+      "id": "ship005",
+      "name": "Titan Moth",
+      "type": "Bio-Organic Carrier",
+      "origin": "Symbiotic Order",
+      "speed": 150,
+      "hyperdrive": 2.0,
+      "firepower": 100
+    },
+    {
+      "id": "ship006",
+      "name": "Black Needle",
+      "type": "Stealth Frigate",
+      "origin": "Pirate Syndicate",
+      "speed": 350,
+      "hyperdrive": 3.6,
+      "firepower": 40
+    }
+  ]
+}
