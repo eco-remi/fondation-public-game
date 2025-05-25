@@ -1,0 +1,20 @@
+[
+        {
+            "identifier": "ank_tolan",
+            "name": "Ank Tolan",
+            "description": "first of all",
+            "img": "/img/leader/ank_tolan.png
+            "strength": 0,
+            "diplomacy": 0,
+            "piloting": 2,
+            "rarity": "null",
+            "status": "idle",
+            "position": "terra-0",
+            "ship": {
+                "identifier": "6769cdba8d723c1fae079c47",
+                "type": "G1",
+                "jump": 10,
+                "celerity": 10
+            }
+        }
+    ]
