@@ -7,13 +7,40 @@
     <link rel="icon" href="/favicon.ico">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+
+        /* Vanilla CSS for flip card */
+        .card {
+            perspective: 800px;
+        }
+
+        .card__content {
+            transform-style: preserve-3d;
+        }
+
+        .card:hover .card__content,
+        .card.active .card__content,
+        .card:active .card__content {
+            transform: rotateY(.5turn);
+        }
+
+        .card__front,
+        .card__back {
+            backface-visibility: hidden;
+        }
+
+        .card__back {
+            transform: rotateY(.5turn);
+        }
+
+    </style>
 </head>
 
 <body class="bg-gray-900 text-white min-h-screen p-6">
 
 <!-- Partie haute -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 m-8">
-    <div>
+    <div id="step-1">
 
         <!-- Titre et slogan -->
         <header class="p-2">
@@ -25,9 +52,9 @@
             <p class="text-sm text-gray-300 mt-2">Cartographiez l’inconnu, découvrez des mondes légendaires.</p>
         </div>
 
-        <div class="text-center p-3 mt-3">
-            <a href="#launch"
-               class="launch-button bg-yellow-500 text-black text-xl font-bold p-4 ml-4 rounded-full shadow-md hover:bg-yellow-400 transition hover:p-6 transition hover:ml-2 transition">
+        <div class="text-center p-3 mt-6 mb-6">
+            <a href="#launch" data-step="0"
+               class="launch-button bg-yellow-500 text-black text-xl font-bold p-4 rounded-full shadow-md hover:bg-yellow-400 transition hover:p-6 transition hover:ml-2 transition active:animate-pulse">
                 🚀 Lancer la Mission
             </a>
         </div>
@@ -50,126 +77,177 @@
     </div>
 
 
-    <div>
+    <div id="step-2" class="hidden">
         <h4 class="text-xl font-bold text-cyan-300 p-3">Planète de départ</h4>
-        <div class="w-72 rounded-xl shadow-xl overflow-hidden p-4 relative text-slate-900
+        <a href="/planet/terra-0"
+           onclick="this.children[0].classList.toggle('active'); return false;">
+
+            <div class="card">
+                <div class="card__content text-center relative w-72 transition-transform duration-1000">
+
+                    <div class="card__front absolute top-0 left-0 w-72 rounded-xl shadow-xl overflow-hidden p-4 relative text-slate-900
     border-4
       border-state-100 bg-gradient-to-br from-sky-500 via-blue-100 to-sky-500
-      bg-sky-500
-  transform hover:scale-105 transition duration-200
-">
-            <!-- Image -->
+      bg-sky-500">
 
-            <div style="height:256px;width:256px;background-image: url(/img/planet/type-1.png);"
-                 alt="Planet Terre Originelle illustration"
-                 class="bg-black w-full h-40 w-lg overflow-hidden object-cover rounded-md mb-2 bg-top-left planet-illustration variation-1
+                        <!-- Image -->
+
+                        <div style="height:256px;width:256px;background-image: url(/assets/img/planet/type-1-e098956ed7e1e68445e9e73ef5c534cc.png);"
+                             alt="Planet Terre Originelle illustration"
+                             class="bg-black w-full h-40 w-lg overflow-hidden object-cover rounded-md mb-2 bg-top-left planet-illustration variation-1
          border-2
                 border-state-100
         ">
-            </div>
+                        </div>
 
-            <!-- Nom et titre -->
-            <div class="text-center">
-                <h2 class="text-lg font-bold">Terre Originelle</h2>
-                <p class="text-xs italic">Berceau de l&#039;espèce humaine</p>
-            </div>
+                        <!-- Nom et titre -->
+                        <div class="text-center">
+                            <h2 class="text-lg font-bold">Terre Originelle</h2>
+                            <p class="text-xs italic">Berceau de l&#039;espèce humaine</p>
+                        </div>
 
-            <!-- Caractéristiques -->
-            <div class="mt-4 space-y-1">
-                <p class="text-sm font-semibold">Matières premières</p>
-                <div class="w-full bg-gray-700 rounded h-2">
-                    <div class="h-2 bg-green-400 rounded" style="width: 16.666666666667%"></div>
-                </div>
-                <p class="text-sm font-semibold">Énergie</p>
-                <div class="w-full bg-gray-700 rounded h-2">
-                    <div class="h-2 bg-red-400 rounded" style="width: 91.666666666667%"></div>
-                </div>
-                <p class="text-sm font-semibold">Slot</p>
-                <div class="w-full bg-gray-700 rounded h-2">
-                    <div class="h-2 bg-blue-400 rounded" style="width: 91.666666666667%"></div>
-                </div>
-            </div>
+                        <!-- footer -->
+                        <p class="text-xs italic mt-3 text-opacity-70">"La Terre n&#039;appartient pas à l&#039;homme, c&#039;est l&#039;homme qui appartient à la Terre."</p>
 
-            <!-- attribut -->
-            <div class="mt-4">
-                <h3 class="text-sm font-bold mb-1">Attributs</h3>
-                <ul class="text-xs list-disc pl-5 space-y-1">
-                    <li><strong>Gravité: </strong> Normale</li>
-                    <li><strong>Climat: </strong> Respirable</li>
-                    <li><strong>Technologie: </strong> Archaïque</li>
-                    <li><strong>Étoile: </strong> Sol</li>
-                    <li><strong>Type: </strong> habitable</li>
-                    <li><strong>Durée d'un cycle: </strong> 24h</li>
-                    <li><strong>Influence: </strong> +20% production</li>
-                </ul>
-            </div>
+                        <!-- Badge de rareté -->
+                        <div class="absolute top-2 right-2 bg-white text-blue-600 text-xs font-bold px-2 py-1 rounded-full">Legendary</div>
 
-            <!-- footer -->
-            <p class="text-xs italic mt-3 text-opacity-70">"La Terre n&#039;appartient pas à l&#039;homme, c&#039;est l&#039;homme qui appartient à la Terre."</p>
+                    </div>
 
-            <!-- Badge de rareté -->
-            <div class="absolute top-2 right-2 bg-white text-blue-600 text-xs font-bold px-2 py-1 rounded-full">Legendary</div>
-        </div>
-    </div>
+                    <!-- Card Back -->
+                    <div style="position: absolute;bottom: 0;" class="card__back w-72 absolute top-0 right-0 rounded-xl shadow-xl overflow-hidden p-4 relative text-slate-900
+    border-4
+      border-state-100 bg-gradient-to-br from-sky-500 via-blue-100 to-sky-500
+      bg-sky-500">
 
-    <div>
-        <h4 class="text-xl font-bold text-cyan-300 p-3">Leader</h4>
-        <div class="w-72 rounded-xl shadow-xl overflow-hidden p-4 relative border-4 text-slate-900
-      border-pink-400 bg-gradient-to-br from-cyan-400 via-white to-cyan-400
-    transform hover:scale-105 transition duration-200
-">
-            <!-- Illustration -->
-            <div class="bg-black w-full h-40 w-lg overflow-hidden object-cover rounded mb-2 flex items-center justify-center border-2     border-pink-400
-  ">
-                <div style="height:128px;width:128px;background-image: url(/img/leader/ark_tolan.png);" alt="Ark Tolan illustration"
-                     class="bg-top-left leader-illustration ">
-                </div>
-            </div>
 
-            <!-- Nom et titre -->
-            <div class="text-center">
-                <h2 class="text-lg font-bold">Ark Tolan</h2>
-                <p class="text-xs text-gray-400 italic">~</p>
-                <p class="text-xs text-bold">Level 1</p>
-            </div>
+                        <!-- Caractéristiques -->
+                        <div class="mt-4 space-y-1 bg-stale-400">
+                            <p class="text-sm font-semibold">Matières premières</p>
+                            <div class="w-full bg-gray-700 rounded h-2">
+                                <div class="h-2 bg-green-400 rounded" style="width: 16.666666666667%"></div>
+                            </div>
+                            <p class="text-sm font-semibold">Énergie</p>
+                            <div class="w-full bg-gray-700 rounded h-2">
+                                <div class="h-2 bg-red-400 rounded" style="width: 91.666666666667%"></div>
+                            </div>
+                            <p class="text-sm font-semibold">Slot</p>
+                            <div class="w-full bg-gray-700 rounded h-2">
+                                <div class="h-2 bg-blue-400 rounded" style="width: 91.666666666667%"></div>
+                            </div>
+                        </div>
 
-            <!-- Caractéristiques -->
-            <div class="mt-4 space-y-1">
-                <p class="text-sm font-semibold">Exploration</p>
-                <div class="w-full bg-gray-700 rounded h-2">
-                    <div class="h-2 bg-green-400 rounded" style="width: 77%"></div>
-                </div>
-                <p class="text-sm font-semibold">Combat</p>
-                <div class="w-full bg-gray-700 rounded h-2">
-                    <div class="h-2 bg-red-400 rounded" style="width: 28%"></div>
-                </div>
-                <p class="text-sm font-semibold">Diplomatie</p>
-                <div class="w-full bg-gray-700 rounded h-2">
-                    <div class="h-2 bg-blue-400 rounded" style="width: 30%"></div>
-                </div>
-            </div>
+                        <!-- attribut -->
+                        <div class="mt-4 text-left">
+                            <h3 class="text-sm font-bold mb-1">Attributs</h3>
+                            <ul class="text-xs list-disc pl-5 space-y-1">
+                                <li><strong>Gravité: </strong> Normale</li>
+                                <li><strong>Climat: </strong> Respirable</li>
+                                <li><strong>Technologie: </strong> Archaïque</li>
+                                <li><strong>Étoile: </strong> Sol</li>
+                                <li><strong>Type: </strong> habitable</li>
+                                <li><strong>Durée d'un cycle: </strong> 24h</li>
+                                <li><strong>Influence: </strong> +20% production</li>
+                            </ul>
+                        </div>
+                    </div>
 
-            <!-- Compétences débloquées -->
-            <div class="mt-4">
-                <h3 class="text-sm font-bold mb-1">Compétences</h3>
-                <ul class="text-xs text-gray-200 list-disc pl-5 space-y-1">
-                </ul>
-            </div>
-
-            <!-- Badge de rareté -->
-            <div class="absolute top-2 right-2 bg-pink-300 text-gray-900 text-xs font-bold px-2 py-1 rounded-full">Platine</div>
-        </div>
-
-        <a href="#generate" class="btn-generate">
-            <div class="w-72">
-                <div class="bg-green-500 text-black p-4 m-4 rounded-full shadow-md hover:bg-yellow-400 transition hover:p-6 transition hover:m-2 transition">
-                    <div class="mt-2">♻️Relancer la pioche</div>
-                    <div class="mt-2">(Nécessite 1 💎)</div>
                 </div>
             </div>
         </a>
+
+        <div class="text-center p-3 mt-6 mb-6">
+            <a href="#launch" data-step="1"
+               class="launch-button bg-yellow-500 text-black text-xl font-bold p-4 rounded-full shadow-md hover:bg-yellow-400 transition hover:p-6 transition hover:ml-2 transition">
+                🚀 Suivant
+            </a>
+        </div>
     </div>
-</div>
+
+    <div id="step-3" class="hidden">
+        <h4 class="text-xl font-bold text-cyan-300 p-3">Leader</h4>
+        <a href="/leader/6769cdba8d723c1fae079c46"
+           onclick="this.children[0].classList.toggle('active'); return false;">
+
+            <div class="card">
+
+                <div class="card__content text-center relative w-72 transition-transform duration-1000">
+
+                    <div class="card__front absolute top-0 left-0 w-72 rounded-xl shadow-xl overflow-hidden p-4 relative border-4 text-slate-900
+      border-yellow-400 bg-gradient-to-br from-yellow-600 via-white to-yellow-600
+  ">
+                        <!-- Illustration -->
+                        <div class="bg-black w-full h-40 w-lg overflow-hidden object-cover rounded mb-2 flex items-center justify-center border-2     border-yellow-400
+  ">
+                            <div style="height:128px;width:128px;background-image: url(/assets/img/leader/ark_tolan-28f16ce3ca6e1c9c9700f3c2b0fcca99.png);"
+                                 alt="Ark Tolan illustration"
+                                 class="bg-top-left leader-illustration ">
+                            </div>
+                        </div>
+
+                        <!-- Nom et titre -->
+                        <div class="text-center">
+                            <h2 class="text-lg font-bold">Ark Tolan</h2>
+                            <p class="text-xs text-gray-400 italic">~</p>
+                            <p class="text-xs text-bold">Level 1</p>
+                        </div>
+
+                        <!-- Caractéristiques -->
+                        <div class="mt-4 space-y-1">
+                            <p class="text-sm font-semibold">Exploration</p>
+                            <div class="w-full bg-gray-700 rounded h-2">
+                                <div class="h-2 bg-green-400 rounded" style="width: 78%"></div>
+                            </div>
+                            <p class="text-sm font-semibold">Combat</p>
+                            <div class="w-full bg-gray-700 rounded h-2">
+                                <div class="h-2 bg-red-400 rounded" style="width: 29%"></div>
+                            </div>
+                            <p class="text-sm font-semibold">Diplomatie</p>
+                            <div class="w-full bg-gray-700 rounded h-2">
+                                <div class="h-2 bg-blue-400 rounded" style="width: 67%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Badge de rareté -->
+                        <div class="absolute top-2 right-2 bg-yellow-300 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full">Gold</div>
+                    </div>
+
+                    <!-- back -->
+                    <div style="position: absolute;bottom: 0;" class="card__back absolute top-0 left-0 w-72  rounded-xl shadow-xl overflow-hidden p-4 relative border-4 text-slate-900
+      border-yellow-400 bg-gradient-to-br from-yellow-600 via-white to-yellow-600
+  ">
+                        <!-- description longue -->
+                        <div class="mt-4">
+                            <h3 class="text-sm font-bold mb-1">Biographie</h3>
+                            <p class="text-xs italic mt-3 text-opacity-70">
+                                Née en 17903, peu de temps après les premiers bombardement qui marquerait la guerre du secteur-7
+                            </p>
+                        </div>
+
+                        <!-- Compétences débloquées -->
+                        <div class="mt-4 text-left">
+                            <h3 class="text-sm font-bold mb-1">Compétences</h3>
+                            <ul class="text-xs list-disc pl-5 space-y-1">
+                                <li>Étudier</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <div class="text-center p-3 mt-6 mb-6 grid-cols-2">
+            <a href="#launch" data-step="2"
+               class="launch-button bg-yellow-500 text-black text-xl font-bold p-4 rounded-full shadow-md">
+                🚀 Let's GO !
+            </a>
+
+            <a href="#generate" class="btn-generate text-center m-2 p-4" title="Relancer la pioche ! (Nécessite 1 💎)">
+                ♻️
+            </a>
+        </div>
+
+    </div>
 </div>
 
 
@@ -188,8 +266,23 @@
         });
     });
 
-    document.querySelector('.launch-button')?.addEventListener('click', () => {
-        alert("Mission lancée ! (en attente de backend)");
+    document.querySelectorAll('.launch-button').forEach(btn => {
+        btn.addEventListener('click', (btnClick) => {
+            btnClick.target.classList.add('animate-pulse');
+            switch (btnClick.target.dataset.step) {
+                case '0':
+                    document.getElementById('step-2').classList.remove('hidden');
+                    document.getElementById("step-2").scrollIntoView({behavior: "smooth"})
+                    break;
+                case '1':
+                    document.getElementById('step-3').classList.remove('hidden');
+                    document.getElementById("step-3").scrollIntoView({behavior: "smooth"});
+                    break;
+                case '2':
+                    alert("Mission lancée ! (en attente de backend)");
+                    break;
+            }
+        });
     });
 </script>
 </body>
