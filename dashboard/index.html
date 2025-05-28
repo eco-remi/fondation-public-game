@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Foundation of Time - Les Fondations du Temps - Jeu de Stratégie Intergalactique et Multi temporel</title>
+    <link rel="icon" href="/favicon.ico">
+    <style>
+        .animate-fade-in {
+            animation: fade-in 0.4s ease-out;
+        }
+
+        #robot-narrateur {
+            cursor: pointer;
+        }
+
+        /* robot assistant on avatar*/
+        .robot-head {
+            background: #343455;
+            border-radius: 50px 50px 20px 20px;
+            border: 4px solid #000;
+            box-sizing: border-box;
+            position: absolute;
+            top: 10px;
+            left: 25px;
+            width: 100px;
+            height: 80px;
+        }
+
+        .robot-pulse {
+            background: red;
+            border-radius: 50px;
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            top: -20px;
+            left: -2px;
+            animation: pulse 1s infinite ease-in-out;
+        }
+
+        @keyframes robot-pulse {
+            from {
+                background: #663399;
+                transform: scale(1);
+                opacity: 1;
+            }
+            to {
+                background: #fff;
+                transform: scale(1.8);
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse {
+            from {
+                background: #663399;
+                transform: scale(1);
+                opacity: 1;
+            }
+            to {
+                background: #fff;
+                transform: scale(1.8);
+                opacity: 0;
+            }
+        }
+
+        .robot-antenna {
+            background: #000;
+            position: absolute;
+            height: 22px;
+            width: 4px;
+            top: -5px;
+            left: 5px;
+        }
+
+        .robot-antenna:before {
+            background: #ff6c6c;
+            border: 4px solid #000;
+            border-radius: 100px;
+            box-sizing: border-box;
+            content: '';
+            display: block;
+            position: relative;
+            top: -18px;
+            left: -10px;
+            width: 25px;
+            height: 25px;
+        }
+
+        .robot-eye-left,
+        .robot-eye-right {
+            position: absolute;
+            background: #0004ff;
+            border: 4px solid #000;
+            border-radius: 100px;
+            box-sizing: border-box;
+            content: '';
+            animation: blink 4s infinite ease-in-out;
+            top: 28px;
+            width: 25px;
+            height: 25px;
+        }
+
+        .robot-eye-left {
+            left: 62px;
+        }
+
+        .robot-eye-right {
+            right: 45px;
+        }
+
+        @keyframes blink {
+            0%, 12%, 100% {
+                height: 25px;
+                top: 28px;
+            }
+            5%, 7% {
+                height: 7px;
+                top: 42px;
+            }
+        }
+
+        .robot-mouth {
+            background: #343455;
+            border-radius: 20px 20px 50px 50px;
+            border: 4px solid #000;
+            box-sizing: border-box;
+            position: absolute;
+            top: 80px;
+            left: 50px;
+            width: 60px;
+            height: 45px;
+        }
+
+        .robot-mouth:before {
+            background: #f6e995;
+            border: 1px solid #f6e995;
+            border-radius: 100px;
+            box-sizing: border-box;
+            content: '';
+            display: block;
+            position: relative;
+            top: 19px;
+            left: 13px;
+            width: 32px;
+            height: 0;
+            animation: speak 200ms 5 ease-in-out;
+        }
+
+        @keyframes speak {
+            0%, 12%, 100% {
+                height: 2px;
+                width: 26px;
+                top: 19px;
+                left: 16px;
+            }
+            5%, 7% {
+                height: 15px;
+                width: 15px;
+                top: 12px;
+                left: 25px;
+            }
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+
+<body class="bg-gray-900 text-white min-h-screen">
+
+<div class="max-w-screen-2xl mx-auto p-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Bloc Site -->
+        <div class="bg-gray-800 rounded-xl p-4 shadow-lg">
+            <div>
+                <!-- Titre et slogan -->
+                <header class="p-6 ml-24">
+                    <h1 class="text-2xl font-bold text-cyan-300 drop-shadow-lg">Fondation Of Time</h1>
+                    <h2 class="text-xl font-bold">Console de bord</h2>
+                </header>
+            </div>
+
+            <!-- Narrator -->
+            <div id="robot-narrateur"
+                 class="fixed top-6 left-6 w-32 h-32 z-50 transition-all duration-500"
+                 onclick="document.getElementById(`robot-chat`).classList.toggle('hidden');">
+                <div id="robot-body">
+                    <div class="robot-head">
+                        <div class="robot-pulse"></div>
+                        <div class="robot-antenna"></div>
+                        <div class="robot-eye-left"></div>
+                        <div class="robot-eye-right"></div>
+                    </div>
+                    <div id="robot-mouth" class="robot-mouth"></div>
+                </div>
+
+                <div id="robot-chat"
+                     class="hidden absolute top-36 left-6 -translate-x-6 w-64 bg-white text-black p-4 rounded shadow-xl z-10">
+                    <p class="text-sm font-medium">Que puis-je faire pour vous, Commandant ?</p>
+                    <div class="mt-3 space-y-2 text-sm">
+                        <button onclick="handleHelp('missions')"
+                                class="w-full bg-green-200 hover:bg-green-300 rounded p-2">Voir
+                            mes missions
+                        </button>
+                        <button onclick="handleHelp('stats')"
+                                class="w-full bg-green-200 hover:bg-green-300 rounded p-2">
+                            Consulter mes stats
+                        </button>
+                        <button onclick="handleHelp('galaxy')"
+                                class="w-full bg-green-200 hover:bg-green-300 rounded p-2">Ouvrir
+                            la carte
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-right">
+                Version 1.2
+            </div>
+        </div>
+
+        <!-- Mini-carte leaders -->
+        <div class="bg-gray-800 rounded-xl p-4 shadow-lg">
+            <h2 class="text-xl font-semibold mb-2">Leaders Actifs</h2>
+            <div class="grid grid-cols-2 gap-2">
+                <div class="rounded-xl shadow-xl overflow-hidden p-4 relative border-4 text-slate-900
+      border-yellow-400 bg-gradient-to-br from-yellow-600 via-white to-yellow-600
+    transform hover:scale-105 transition duration-200
+">
+                    <!-- Nom et titre -->
+                    <div class="pt-3 object-cover rounded mb-2 border-2     border-yellow-400
+  ">
+                        <h2 class="text-center font-bold">Ank Tolan</h2>
+
+                        <p class="text-left p-2">Mission 1</p>
+                    </div>
+
+                    <!-- Badge de rareté -->
+                    <div class="absolute top-2 right-2 bg-yellow-300 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full">Gold</div>
+                </div>
+                <div class="rounded-xl shadow-xl overflow-hidden p-4 relative border-4 text-slate-900
+      border-gray-600 bg-slate-300
+    transform hover:scale-105 transition duration-200
+">
+                    <!-- Nom et titre -->
+                    <div class="pt-3 object-cover rounded mb-2 border-2     border-gray-600
+  ">
+                        <h2 class="text-center font-bold">Bob de test</h2>
+
+                        <p class="text-left p-2">Mission 1</p>
+                    </div>
+
+                    <!-- Badge de rareté -->
+                    <div class="absolute top-2 right-2 bg-gray-300 text-stone-800 text-xs font-bold px-2 py-1 rounded-full">Commun</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bloc Messages -->
+        <div class="bg-gray-800 rounded-xl p-4 shadow-lg relative">
+            <h2 class="text-xl font-semibold mb-2">Messages</h2>
+            <ul class="text-sm max-h-40 overflow-y-auto space-y-1">
+                <li class="border-b border-gray-700 pb-1">
+                    <span class="text-blue-400 font-medium">message 1</span><br>
+                    <span class="text-gray-400">blalalala</span>
+                </li>
+                <li class="border-b border-gray-700 pb-1">
+                    <span class="text-blue-400 font-medium">message 2</span><br>
+                    <span class="text-gray-400">aeifjhepafj</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Bloc Galaxie -->
+        <div class="bg-gray-800 rounded-xl p-4 shadow-lg">
+            <h2 class="text-xl font-semibold mb-2">Carte Galactique</h2>
+            <div id="galaxy-map" class="bg-black rounded h-64 flex items-center justify-center text-gray-500">
+                <div class="bg-black p-4 rounded-xl shadow mt-6">
+                    <h2 class="text-xl font-semibold mb-4 text-white">Carte Galactique</h2>
+                    <canvas id="galaxyCanvas" width="800" height="600" class="w-full max-w-full border border-gray-700"></canvas>
+                </div>
+
+                <script>
+                    const galaxyZones = [
+                        {name: "Empire", x: 200, y: 150, radius: 100, color: "#ef4444"},
+                        {name: "Fondation", x: 500, y: 300, radius: 120, color: "#3b82f6"},
+                        {name: "Indépendants", x: 300, y: 450, radius: 80, color: "#10b981"}
+                    ];
+
+                    const zones = [
+                        {name: "Zone 1", radius: 100, color: "#1f2937AA"},
+                        {name: "Zone 2", radius: 200, color: "#37415188"},
+                        {name: "Zone 3", radius: 300, color: "#4b556388"},
+                        {name: "Zone 4", radius: 400, color: "#6b728088"},
+                    ];
+
+                    const canvas = document.getElementById('galaxyCanvas');
+                    const ctx = canvas.getContext('2d');
+
+
+                    const playerShip = {
+                        x: 100,
+                        y: 100,
+                        vx: 0.7,
+                        vy: 0.4,
+                        radius: 6,
+                        color: "#00ffff"
+                    };
+
+                    function drawStars() {
+                        for (let i = 0; i < 200; i++) {
+                            const x = Math.random() * canvas.width;
+                            const y = Math.random() * canvas.height;
+                            const r = Math.random() * 1.5;
+                            ctx.beginPath();
+                            ctx.arc(x, y, r, 0, Math.PI * 2);
+                            ctx.fillStyle = "#fff";
+                            ctx.fill();
+                        }
+                    }
+
+                    // Zones d’influence
+                    function drawZones(zones) {
+                        zones.forEach(zone => {
+                            const gradient = ctx.createRadialGradient(zone.x, zone.y, 0, zone.x, zone.y, zone.radius);
+                            gradient.addColorStop(0, zone.color + "AA"); // Centre + alpha
+                            gradient.addColorStop(1, zone.color + "00"); // Bord transparent
+
+                            ctx.beginPath();
+                            ctx.fillStyle = gradient;
+                            ctx.arc(zone.x, zone.y, zone.radius, 0, 2 * Math.PI);
+                            ctx.fill();
+
+                            ctx.fillStyle = "#fff";
+                            ctx.font = "14px sans-serif";
+                            ctx.fillText(zone.name, zone.x - 20, zone.y);
+                        });
+                    }
+
+                    function drawConcentricZones(cx, cy) {
+                        const colors = ["rgba(255,255,255,0.05)", "rgba(255,255,255,0.07)", "rgba(255,255,255,0.09)", "rgba(255,255,255,0.12)"];
+                        for (let i = 1; i <= 4; i++) {
+                            ctx.beginPath();
+                            ctx.arc(cx, cy, i * 80, 0, 2 * Math.PI);
+                            ctx.fillStyle = colors[i - 1];
+                            ctx.fill();
+                        }
+                    }
+
+                    function drawGoldenSpiral(cx, cy, a = 2, scale = 5) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = "rgba(255, 255, 255, 0.1)";
+                        ctx.lineWidth = 2;
+
+                        let angle = 0;
+                        let maxAngle = (6 * Math.PI) + angle;
+                        ctx.moveTo(cx, cy);
+
+                        while (angle < maxAngle) {
+                            const r = a * Math.exp(0.30635 * angle); // phi ≈ 1.618, ln(phi) ≈ 0.30635
+                            const x = cx + r * Math.cos(angle) * scale;
+                            const y = cy + r * Math.sin(angle) * scale;
+                            ctx.lineTo(x, y);
+                            angle += 0.1;
+                        }
+
+                        ctx.stroke();
+                    }
+
+                    function updateShipPosition() {
+                        playerShip.x += playerShip.vx;
+                        playerShip.y += playerShip.vy;
+
+                        if (playerShip.x > canvas.width || playerShip.x < 0) playerShip.vx *= -1;
+                        if (playerShip.y > canvas.height || playerShip.y < 0) playerShip.vy *= -1;
+                    }
+
+                    function drawPlayerShip() {
+                        ctx.beginPath();
+                        ctx.arc(playerShip.x, playerShip.y, playerShip.radius, 0, 2 * Math.PI);
+                        ctx.fillStyle = playerShip.color;
+                        ctx.shadowBlur = 10;
+                        ctx.shadowColor = playerShip.color;
+                        ctx.fill();
+                        ctx.shadowBlur = 0;
+                    }
+
+                    canvas.addEventListener('click', (e) => {
+                        const rect = canvas.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const cx = canvas.width / 2;
+                        const cy = canvas.height / 2;
+
+                        if (x > cx && y < cy) {
+                            alert("Zoom sur le quadrant 1");
+                            // implémenter zoom ou navigation
+                        }
+                    });
+
+                    function renderGalaxy() {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        drawStars();
+                        drawConcentricZones(canvas.width / 2, canvas.height / 2);
+                        for (let i = 0; i < 30; i+=6) {
+                            drawGoldenSpiral(canvas.width / 2, canvas.height / 2, 1, i);
+                        }
+                        drawZones(galaxyZones);
+                        updateShipPosition();
+                        drawPlayerShip();
+                        // todo animate ship
+                        // requestAnimationFrame(animate);
+                    }
+
+                    function animate() {
+                        updateShipPosition();
+                        drawPlayerShip();
+                        requestAnimationFrame(animate);
+                    }
+
+
+                    renderGalaxy();
+                </script>
+            </div>
+        </div>
+
+        <!-- Bloc Sector -->
+        <div class="bg-gray-800 rounded-xl p-4 shadow-lg">
+            <h2 class="text-xl font-semibold mb-2">Carte Sectorielle</h2>
+            <div id="sector-map" class="bg-black rounded h-64 flex items-center justify-center text-gray-500">
+                [Simulation du secteur SVG ou Canvas ici]
+            </div>
+        </div>
+
+        <!-- Secteur en cours -->
+        <div class="bg-gray-800 rounded-xl p-4 shadow-lg">
+            <h2 class="text-xl font-semibold mb-2">Secteur Actuel</h2>
+            <p class="text-sm text-gray-300">Nom : Sector #23456</p>
+            <p class="text-sm text-gray-400">Contrôle : 42%%</p>
+            <p class="text-sm text-yellow-400">Missions actives : 1</p>
+        </div>
+
+        <!-- Bloc flotte -->
+        <div class="bg-gray-800 rounded-xl p-4 shadow-lg">
+            <h2 class="text-xl font-semibold mb-2">Flotte</h2>
+            <ul class="text-sm space-y-1">
+                <li>🚀 ship1 (leger) - idle</li>
+                <li>🚀 ship2 (porteur) - idle</li>
+            </ul>
+        </div>
+
+        <!-- Bloc Alliance -->
+        <div class="bg-gray-800 rounded-xl p-4 shadow-lg">
+            <h2 class="text-xl font-semibold mb-2">Alliance</h2>
+            <p class="font-medium text-green-400">Alliance pro test</p>
+            <p class="text-sm text-gray-400">5 membres</p>
+            <p class="text-xs text-gray-500">Rang galactique : 3</p>
+        </div>
+
+        <!-- Statistiques -->
+        <div class="bg-gray-800 rounded-xl p-4 shadow-lg">
+            <h2 class="text-xl font-semibold mb-2">Statistiques</h2>
+            <ul class="text-sm text-gray-300 space-y-1">
+                <li>XP total : 234</li>
+                <li>Missions accomplies : 3</li>
+                <li>Crédits : 6,543</li>
+                <li>Leaders collectionnés : 2</li>
+            </ul>
+        </div>
+        <div class="mb-20">
+        </div>
+
+
+
+
+        <!-- FOOTER GALACTIQUE TABLEAU DE BORD -->
+        <footer class="fixed bottom-0 left-0 right-0 bg-gray-800 border-t border-gray-700 py-4 px-6">
+            <div class="flex justify-between items-center flex-wrap">
+                <!-- Cadrant circulaire SVG -->
+                <div class="flex items-center space-x-4">
+                    <svg viewBox="0 0 100 100" class="w-16 h-16">
+                        <circle cx="50" cy="50" r="48" stroke="#10b981" stroke-width="2" fill="transparent"/>
+                        <text x="50%" y="54%" text-anchor="middle" fill="#10b981" font-size="14">PseudoTestDu73</text>
+                    </svg>
+
+
+                    <!-- Écrans rectangulaires SVG pour sections -->
+                    <div id="mini-menu" class="grid grid-cols-4 gap-2">
+                        <div class="relative">
+                            <div class="absolute top-1 right-1 w-2.5 h-2.5 bg-red-500 rounded-full animate-ping"></div>
+
+                            <a href="#message"   class="btn btn-primary"
+                               title="Messages">
+                                <svg viewBox="0 0 60 60" class="w-14 h-14">
+                                    <rect x="2" y="2" width="56" height="56" rx="4" fill="#064e3b" stroke="#10b981"
+                                          stroke-width="2"/>
+                                    <path d="M7.05,0H115.83a7.07,7.07,0,0,1,7,7.05V81.81a7,7,0,0,1-1.22,4,2.78,2.78,0,0,1-.66,1,2.62,2.62,0,0,1-.66.46,7,7,0,0,1-4.51,1.65H7.05a7.07,7.07,0,0,1-7-7V7.05A7.07,7.07,0,0,1,7.05,0Zm-.3,78.84L43.53,40.62,6.75,9.54v69.3ZM49.07,45.39,9.77,83.45h103L75.22,45.39l-11,9.21h0a2.7,2.7,0,0,1-3.45,0L49.07,45.39Zm31.6-4.84,35.46,38.6V9.2L80.67,40.55ZM10.21,5.41,62.39,47.7,112.27,5.41Z"/>
+                                </svg></a>
+                        </div>
+                        <div>
+                            <a href="#leader"   class="btn btn-primary leader-menu"
+                               title="Liste des leaders">
+                                <svg viewBox="0 0 60 60" class="w-14 h-14">
+                                    <rect x="2" y="2" width="56" height="56" rx="4" fill="#064e3b" stroke="#10b981"
+                                          stroke-width="2"/>
+                                </svg></a>
+
+
+                        </div>
+                        <div>
+                            <a href="/world-rank"   class="btn btn-primary"
+                               title="Parcourir les mondes">
+                                <svg viewBox="0 0 60 60" class="w-14 h-14">
+                                    <rect x="2" y="2" width="56" height="56" rx="4" fill="#064e3b" stroke="#10b981"
+                                          stroke-width="2"/>
+                                </svg></a>
+                        </div>
+                        <div>
+                            <a href="/shed"   class="btn btn-primary"
+                               title="Mon hangar">
+                                <svg viewBox="0 0 60 60" class="w-14 h-14">
+                                    <rect x="2" y="2" width="56" height="56" rx="4" fill="#064e3b" stroke="#10b981"
+                                          stroke-width="2"/>
+                                </svg></a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Boutons de navigation -->
+                <div class="space-x-2 hidden md:block">
+                    <a href="/galaxy" class="bg-green-700 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded">Vue Galaxie
+                    </a>
+                    <button class="bg-green-700 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded">Vue Liste
+                    </button>
+                    <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded">Alliance</button>
+                    <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded">Commerce</button>
+                    <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded">Aide</button>
+                    <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded">Mission</button>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+</div>
+
+<script>
+    const galaxy = document.getElementById("sector-map");
+    const width = galaxy.clientWidth;
+    const height = galaxy.clientHeight;
+
+    const svgNS = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(svgNS, "svg");
+    svg.setAttribute("width", width);
+    svg.setAttribute("height", height);
+    svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+    svg.style.cursor = "grab";
+
+    // Create group for pan
+    const panGroup = document.createElementNS(svgNS, "g");
+    svg.appendChild(panGroup);
+
+    // Stars background
+    for (let i = 0; i < 150; i++) {
+        const star = document.createElementNS(svgNS, "circle");
+        star.setAttribute("cx", Math.random() * width * 2 - width / 2);
+        star.setAttribute("cy", Math.random() * height * 2 - height / 2);
+        star.setAttribute("r", Math.random() * 1.2 + 0.4);
+        star.setAttribute("fill", "white");
+        star.setAttribute("opacity", Math.random() * 0.8);
+        panGroup.appendChild(star);
+    }
+
+    // Ajoute quelques planètes/secteurs
+    const sectors = [
+        {name: "Solenne Prime", x: 80, y: 40},
+        {name: "Neryon", x: 220, y: 120},
+        {name: "Liguria", x: 400, y: 80},
+        {name: "Noesis", x: 330, y: 200},
+        {name: "Myrrh", x: 120, y: 180}
+    ];
+
+    // Draw connections
+    const connections = [
+        [0, 1],
+        [1, 2],
+        [1, 3],
+        [3, 4],
+        [0, 4]
+    ];
+
+    connections.forEach(([a, b]) => {
+        const line = document.createElementNS(svgNS, "line");
+        line.setAttribute("x1", sectors[a].x);
+        line.setAttribute("y1", sectors[a].y);
+        line.setAttribute("x2", sectors[b].x);
+        line.setAttribute("y2", sectors[b].y);
+        line.setAttribute("stroke", "#64748b");
+        line.setAttribute("stroke-width", 1);
+        panGroup.appendChild(line);
+    });
+
+    // Draw planets
+    sectors.forEach(sector => {
+        const planet = document.createElementNS(svgNS, "circle");
+        planet.setAttribute("cx", sector.x);
+        planet.setAttribute("cy", sector.y);
+        planet.setAttribute("r", 8);
+        planet.setAttribute("fill", "#4ade80");
+        planet.setAttribute("stroke", "#10b981");
+        planet.setAttribute("stroke-width", 2);
+        planet.setAttribute("class", "hover:cursor-pointer");
+        planet.style.cursor = "pointer";
+        panGroup.appendChild(planet);
+
+        const label = document.createElementNS(svgNS, "text");
+        label.setAttribute("x", sector.x + 10);
+        label.setAttribute("y", sector.y + 4);
+        label.setAttribute("fill", "#94a3b8");
+        label.setAttribute("font-size", "10");
+        label.textContent = sector.name;
+        panGroup.appendChild(label);
+    });
+
+    // Enable dragging
+    let isDragging = false, startX, startY, viewBoxX = 0, viewBoxY = 0;
+
+    svg.addEventListener("mousedown", e => {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        svg.style.cursor = "grabbing";
+    });
+
+    svg.addEventListener("mousemove", e => {
+        if (isDragging) {
+            const dx = (e.clientX - startX);
+            const dy = (e.clientY - startY);
+            svg.setAttribute("viewBox", `${viewBoxX - dx} ${viewBoxY - dy} ${width} ${height}`);
+        }
+    });
+
+    svg.addEventListener("mouseup", e => {
+        isDragging = false;
+        viewBoxX -= (e.clientX - startX);
+        viewBoxY -= (e.clientY - startY);
+        svg.style.cursor = "grab";
+    });
+
+    svg.addEventListener("mouseleave", () => {
+        isDragging = false;
+        svg.style.cursor = "grab";
+    });
+
+    galaxy.innerHTML = "";
+    galaxy.appendChild(svg);
+</script>
+
+
+<script>
+    function showRobotMessage(type, text) {
+        const robot = document.getElementById('robot-narrateur');
+        const robotBody = document.getElementById('robot-body');
+        const mouth = document.getElementById('robot-mouth');
+
+        // Supprime ancien message
+        const oldBox = document.getElementById('robot-msg');
+        if (oldBox) oldBox.remove();
+
+        const messageBox = document.createElement('div');
+        messageBox.id = 'robot-msg';
+        messageBox.className = `absolute top-0 left-36 text-sm px-3 py-2 rounded shadow-lg whitespace-nowrap animate-fade-in`;
+
+        switch (type) {
+            case 'success':
+                messageBox.classList.add('bg-green-200', 'text-green-900');
+                robotBody.setAttribute('stroke', '#10b981');
+                mouth.setAttribute('fill', '#10b981');
+                break;
+            case 'info':
+                messageBox.classList.add('bg-blue-200', 'text-blue-900');
+                robotBody.setAttribute('stroke', '#3b82f6');
+                mouth.setAttribute('fill', '#3b82f6');
+                break;
+            case 'alert':
+                messageBox.classList.add('bg-yellow-200', 'text-yellow-900');
+                robotBody.setAttribute('stroke', '#facc15');
+                mouth.setAttribute('fill', '#facc15');
+                break;
+            case 'danger':
+                messageBox.classList.add('bg-red-200', 'text-red-900');
+                robotBody.setAttribute('stroke', '#ef4444');
+                mouth.setAttribute('fill', '#ef4444');
+                break;
+        }
+
+        messageBox.textContent = text;
+        robot.appendChild(messageBox);
+
+        setTimeout(() => {
+            messageBox.remove();
+        }, 5000);
+    }
+
+    function handleHelp(type) {
+        switch (type) {
+            case 'missions':
+                alert("Chargement des missions...");
+                break;
+            case 'stats':
+                alert("Affichage des statistiques...");
+                break;
+            case 'galaxy':
+                alert("Ouverture de la carte galactique...");
+                break;
+        }
+    }
+
+    // Exemple d'appel
+    showRobotMessage('success', 'Bienvenue sur le jeu !');
+</script>
+
+</body>
+
+</html>
