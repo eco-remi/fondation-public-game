@@ -16,6 +16,18 @@
     </style>
 
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.brevo.com/js/sdk-loader.js" async></script>
+    <script>
+        // Version: 2.0
+        window.Brevo = window.Brevo || [];
+        Brevo.push([
+            "init",
+            {
+                client_key: "vtx6txplxun2hip2n37rmkxk"
+            }
+        ]);
+    </script>
 </head>
 
 <body class="min-h-screen text-white relative overflow-auto">
@@ -258,18 +270,6 @@
     resizeCanvas();
     initStars();
     animateStars();
-</script>
-
-<script src="https://cdn.brevo.com/js/sdk-loader.js" async></script>
-<script>
-    // Version: 2.0
-    window.Brevo = window.Brevo || [];
-    Brevo.push([
-        "init",
-        {
-            client_key: "vtx6txplxun2hip2n37rmkxk"
-        }
-    ]);
 </script>
 
 </body>
